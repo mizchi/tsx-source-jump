@@ -1,2 +1,2 @@
-export { tsxElementLinker } from "./element-linker";
+export { tsxSourceJump } from "./tsx-source-jump";
 export { embedSource } from "./embed-source";

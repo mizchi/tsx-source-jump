@@ -1,5 +1,5 @@
 {
-  "name": "tsx-element-linker",
+  "name": "tsx-source-jump",
   "version": "0.0.1",
   "scripts": {
     "dev": "vite",

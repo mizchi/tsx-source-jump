@@ -5,7 +5,7 @@ import ts from "typescript";
 import { jsxTransformerFactory } from "../lib/transformers";
 
 const printer = ts.createPrinter();
-export function tsxElementLinker(opts: SourceLinkerOptions) {
+export function tsxSourceJump(opts: SourceLinkerOptions) {
   return {
     enforce: "pre",
     transform(code: string, id: string) {

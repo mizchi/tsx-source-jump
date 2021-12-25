@@ -1,11 +1,11 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import { tsxElementLinker } from "./vite";
+import { tsxSourceJump } from "./vite";
 import { embedSource } from "./vite/embed-source";
 
 export default defineConfig({
   plugins: [
-    tsxElementLinker({
+    tsxSourceJump({
       projectRoot: __dirname + "/",
       target: [
         /^[a-z]+$/,

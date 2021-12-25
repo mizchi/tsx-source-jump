@@ -1,4 +1,4 @@
-# tsx-element-linker
+# tsx-source-jump
 
 Jump to source code of created elements on vscode.
 
@@ -22,7 +22,7 @@ yarn add tsx-element-linker
 // vite.config.ts
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
-import { tsxElementLinker } from "tsx-element-linker/vite";
+import { tsxSourceJump } from "tsx-source-jump/vite";
 
 export default defineConfig({
   plugins: [
@@ -45,7 +45,7 @@ Mount UI.
 import React from "react";
 import ReactDOM from "react-dom";
 import { App } from "./App";
-import { OverlayPortal } from "tsx-element-linker/runtime";
+import { OverlayPortal } from "tsx-source-jump/runtime";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -62,7 +62,7 @@ ReactDOM.render(
 
 ### with charkra-ui / react-native-elements ...
 
-`tsx-element-linker` adds `data-source-path="..."` for `target` options.
+`tsx-source-jump` adds `data-source-path="..."` for `target` options.
 
 Targeted elements should pass `data-source-*` to raw elements.
 
@@ -81,7 +81,7 @@ tsxElementLinker({
 
 ## How it works
 
-`tsx-element-linker/vite`'s typescript transformer adds `data-source-*` as props by `target: RegExp[]` in `.tsx`.
+`tsx-source-jump/vite`'s typescript transformer adds `data-source-*` as props by `target: RegExp[]` in `.tsx`.
 
 ```tsx
 // from
