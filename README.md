@@ -13,7 +13,7 @@ Jump to source code of created elements on vscode.
 ### Install
 
 ```bash
-yarn add tsx-element-linker
+yarn add tsx-source-jump
 ```
 
 ### Vite
@@ -26,7 +26,7 @@ import { tsxSourceJump } from "tsx-source-jump/vite";
 
 export default defineConfig({
   plugins: [
-    tsxElementLinker({
+    tsxSourceJump({
       // your projectRoot
       projectRoot: __dirname + "/",
       // rewriting element target
@@ -68,7 +68,7 @@ Targeted elements should pass `data-source-*` to raw elements.
 
 ```ts
 // vite.config.ts
-tsxElementLinker({
+tsxSourceJump({
   projectRoot: __dirname + "/",
   target: [
     // default target: div, main, span...
