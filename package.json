@@ -1,6 +1,8 @@
 {
   "name": "tsx-source-jump",
   "version": "0.0.1",
+  "type": "module",
+  "types": "lib/index.d.ts",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -27,9 +29,6 @@
     "vite": "^2.7.6"
   },
   "files": [
-    "lib",
-    "runtime",
-    "vite",
-    "types.ts"
+    "lib"
   ]
 }

@@ -2,7 +2,7 @@ import type { SourceLinkerOptions } from "../types";
 import type { Plugin } from "vite";
 
 import ts from "typescript";
-import { jsxTransformerFactory } from "../lib/transformers";
+import { jsxTransformerFactory } from "../transformers";
 
 const printer = ts.createPrinter();
 export function tsxSourceJump(opts: SourceLinkerOptions) {

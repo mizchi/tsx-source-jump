@@ -22,7 +22,7 @@ yarn add tsx-source-jump
 // vite.config.ts
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
-import { tsxSourceJump } from "tsx-source-jump/vite";
+import { tsxSourceJump } from "tsx-source-jump/lib/vite";
 
 export default defineConfig({
   plugins: [
@@ -45,7 +45,7 @@ Mount UI.
 import React from "react";
 import ReactDOM from "react-dom";
 import { App } from "./App";
-import { OverlayPortal } from "tsx-source-jump/runtime";
+import { OverlayPortal } from "tsx-source-jump/lib/runtime";
 
 ReactDOM.render(
   <React.StrictMode>
