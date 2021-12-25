@@ -4,8 +4,9 @@ Jump to source code of created elements on vscode.
 
 ![](https://gyazo.com/c37613f60f53d43e9701ebc6d4c97922.gif)
 
-- Rewriter jsx elements with source link
-- Open `vscode://file/...` by `Shift` + `Left-Click`
+- TypeScript Transformer
+- `vite`'s Plugin
+- Runtime Overlay
 
 ## How to use
 
@@ -26,6 +27,7 @@ import { tsxElementLinker } from "tsx-element-linker/vite";
 export default defineConfig({
   plugins: [
     tsxElementLinker({
+      // your projectRoot
       projectRoot: __dirname + "/",
       // rewriting element target
       target: [/^[a-z]+$/],
@@ -36,9 +38,9 @@ export default defineConfig({
 });
 ```
 
-Mount UI
+Mount UI.
 
-```ts
+```tsx
 // entrypoint
 import React from "react";
 import ReactDOM from "react-dom";
@@ -47,14 +49,16 @@ import { OverlayPortal } from "tsx-element-linker/runtime";
 
 ReactDOM.render(
   <React.StrictMode>
-    <ChakraProvider resetCSS>
-      <OverlayPortal />
-      <App />
-    </ChakraProvider>
+    <OverlayPortal />
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );
 ```
+
+- Enter your vite app (`http://localhost:3000`)
+- Press `Shift` and move cursor to element you want to open
+- Click element path
 
 ### with charkra-ui / react-native-elements ...
 
@@ -63,6 +67,7 @@ ReactDOM.render(
 Targeted elements should pass `data-source-*` to raw elements.
 
 ```ts
+// vite.config.ts
 tsxElementLinker({
   projectRoot: __dirname + "/",
   target: [
