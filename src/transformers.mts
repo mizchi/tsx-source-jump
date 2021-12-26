@@ -1,5 +1,5 @@
 import ts, { factory } from "typescript";
-import { SourceLinkerOptions } from "./types";
+import { SourceLinkerOptions } from "./types.mjs";
 
 function findOwnerComponent(node: ts.Node): ts.FunctionDeclaration | null {
   let cur = node;

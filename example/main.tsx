@@ -6,8 +6,8 @@ import { OverlayPortal } from "../src/runtime/Overlay";
 
 ReactDOM.render(
   <React.StrictMode>
+    <OverlayPortal />
     <ChakraProvider resetCSS>
-      <OverlayPortal />
       <App />
     </ChakraProvider>
   </React.StrictMode>,

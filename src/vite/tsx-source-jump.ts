@@ -1,8 +1,8 @@
-import type { SourceLinkerOptions } from "../types";
+import type { SourceLinkerOptions } from "../types.mjs";
 import type { Plugin } from "vite";
 
 import ts from "typescript";
-import { jsxTransformerFactory } from "../transformers";
+import { jsxTransformerFactory } from "../transformers.mjs";
 
 const printer = ts.createPrinter();
 export function tsxSourceJump(opts: SourceLinkerOptions) {
