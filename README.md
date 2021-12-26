@@ -46,23 +46,25 @@ export default defineConfig({
 
 (Current `tsx-source-jump` rewrites `.tsx` to `.tsx` to work with any ts compiler (tsc, esbuild, swc). It may causes performance problem)
 
-Mount UI.
+### Mount Overlay
 
 ```tsx
 // entrypoint
 import React from "react";
 import ReactDOM from "react-dom";
 import { App } from "./App";
-import { OverlayPortal } from "tsx-source-jump/runtime";
+import { SourceJumpOverlayPortal } from "tsx-source-jump/runtime";
 
 ReactDOM.render(
   <React.StrictMode>
-    <OverlayPortal />
+    <SourceJumpOverlayPortal />
     <App />
   </React.StrictMode>,
   document.getElementById("root")
 );
 ```
+
+### Jump!
 
 - Enter your vite app (`http://localhost:3000`)
 - Press `Shift` and move cursor to element you want to open
@@ -103,7 +105,7 @@ Targeted elements should pass `data-sj-*` to raw elements.
 </div>
 ```
 
-In browser, `OverlayPortal` component catches `mouseover` events and overlay ui.
+In browser, `SourceJumpOverlayPortal` component catches `mouseover` events and overlay ui.
 
 ## TODO
 

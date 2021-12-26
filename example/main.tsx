@@ -2,11 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { ChakraProvider } from "@chakra-ui/react";
 import { App } from "./App";
-import { OverlayPortal } from "../";
+import { SourceJumpOverlayPortal } from "../";
 
 ReactDOM.render(
   <React.StrictMode>
-    <OverlayPortal />
+    <SourceJumpOverlayPortal />
     <ChakraProvider resetCSS>
       <App />
     </ChakraProvider>

@@ -16,7 +16,13 @@ export default defineConfig({
       },
     },
     rollupOptions: {
-      external: ["typescript", "vite", "react"],
+      external: [
+        "typescript",
+        "vite",
+        "react",
+        "react-dom",
+        "react/jsx-runtime",
+      ],
     },
   },
 });

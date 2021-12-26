@@ -43,7 +43,7 @@ function useMouseOverElementRef(): HTMLElement | null {
   return element;
 }
 
-export function Overlay() {
+export function SourceJumpOverlay() {
   const ref = useRef<HTMLDivElement>(null);
   const element = useMouseOverElementRef();
   const [active, setActive] = useState(false);
@@ -157,7 +157,7 @@ export function Overlay() {
   );
 }
 
-export function OverlayPortal() {
+export function SourceJumpOverlayPortal() {
   const [element, setElement] = useState<HTMLElement | null>(null);
   useEffect(() => {
     const tooltip = document.createElement("div");
@@ -172,5 +172,5 @@ export function OverlayPortal() {
     };
   }, []);
   if (element == null) return <></>;
-  return ReactDOM.createPortal(<Overlay />, element);
+  return ReactDOM.createPortal(<SourceJumpOverlay />, element);
 }
