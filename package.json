@@ -1,6 +1,6 @@
 {
   "name": "tsx-source-jump",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "type": "module",
   "types": "lib/index.d.ts",
   "exports": {
