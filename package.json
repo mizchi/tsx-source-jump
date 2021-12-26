@@ -24,9 +24,6 @@
     "typescript": "*"
   },
   "devDependencies": {
-    "@chakra-ui/react": "^1.7.3",
-    "@emotion/react": "^11",
-    "@emotion/styled": "^11",
     "@types/node": "^17.0.4",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
@@ -40,6 +37,7 @@
   },
   "files": [
     "lib",
-    "src"
+    "src",
+    "dist"
   ]
 }
