@@ -42,6 +42,8 @@
   "files": [
     "lib",
     "src",
-    "dist"
+    "dist",
+    "vite.d.ts",
+    "runtime.d.ts"
   ]
 }
