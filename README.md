@@ -2,7 +2,7 @@
 
 Jump from the HTML element to the source code of the generator.
 
-![](https://gyazo.com/c37613f60f53d43e9701ebc6d4c97922.gif)
+![](https://i.gyazo.com/c003c81e7817d93367b26af8c64dcf65.gif)
 
 - TypeScript Transformer
 - `vite`'s Plugin

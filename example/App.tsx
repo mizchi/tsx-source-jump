@@ -34,7 +34,7 @@ export function App() {
             display="grid"
             placeItems="center"
           >
-            Box
+            Boxaaa
           </Box>
         </div>
         <div
