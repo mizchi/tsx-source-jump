@@ -4,9 +4,11 @@ Jump from the HTML element to the source code of the generator.
 
 ![](https://i.gyazo.com/c003c81e7817d93367b26af8c64dcf65.gif)
 
-- TypeScript Transformer
-- `vite`'s Plugin
-- Runtime Overlay
+## How it works
+
+- Vite plugin to embed source location
+- Overlay ui
+- Open `vscode://file/...` to jump
 
 ## How to use
 
