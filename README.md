@@ -1,6 +1,6 @@
 # tsx-source-jump
 
-Jump to source code of created elements on vscode.
+Jump from the HTML element to the source code of the generator.
 
 ![](https://gyazo.com/c37613f60f53d43e9701ebc6d4c97922.gif)
 
@@ -13,7 +13,7 @@ Jump to source code of created elements on vscode.
 ### Install
 
 ```bash
-yarn add tsx-source-jump
+yarn add tsx-source-jump -D
 ```
 
 ### Vite
@@ -22,18 +22,22 @@ yarn add tsx-source-jump
 // vite.config.ts
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
-import { tsxSourceJump } from "tsx-source-jump/lib/vite";
+import { tsxSourceJump } from "tsx-source-jump";
 
 export default defineConfig({
   plugins: [
-    tsxSourceJump({
-      // your projectRoot
-      projectRoot: __dirname + "/",
-      // rewriting element target
-      target: [/^[a-z]+$/],
-    }),
+    // DO NOT INCLUDE IN PRODUCTION
+    ...(process.env.NODE_ENV !== "production"
+      ? [
+          tsxSourceJump({
+            // your projectRoot
+            projectRoot: __dirname + "/",
+            // rewriting element target
+            target: [/^[a-z]+$/],
+          }),
+        ]
+      : []),
     react(),
-    embedSource(),
   ],
 });
 ```
@@ -45,7 +49,7 @@ Mount UI.
 import React from "react";
 import ReactDOM from "react-dom";
 import { App } from "./App";
-import { OverlayPortal } from "tsx-source-jump/lib/runtime";
+import { OverlayPortal } from "tsx-source-jump";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -60,11 +64,9 @@ ReactDOM.render(
 - Press `Shift` and move cursor to element you want to open
 - Click element path
 
-### with charkra-ui / react-native-elements ...
+### with primitive dom wrapper like charkra-ui / react-native-elements ...
 
 `tsx-source-jump` adds `data-source-path="..."` for `target` options.
-
-Targeted elements should pass `data-source-*` to raw elements.
 
 ```ts
 // vite.config.ts
@@ -73,15 +75,17 @@ tsxSourceJump({
   target: [
     // default target: div, main, span...
     /^[a-z]+$/,
-    // for chakra
+    // Additional targets for chakra-ui
     /^(Box|Flex|Center|Container|Grid|SimpleGrid|Stack|Wrap|Button|Link|Icon|Image)$/,
   ],
 });
 ```
 
-## How it works
+Targeted elements should pass `data-source-*` to raw elements.
 
-`tsx-source-jump/vite`'s typescript transformer adds `data-source-*` as props by `target: RegExp[]` in `.tsx`.
+## How it works internal
+
+`tsx-source-jump/vite`'s typescript transformer adds `data-source-*` as props.
 
 ```tsx
 // from
@@ -94,6 +98,8 @@ tsxSourceJump({
   xxx
 </div>
 ```
+
+In browser, `OverlayPortal` component catches `mouseover` events and overlay ui.
 
 ## TODO
 
