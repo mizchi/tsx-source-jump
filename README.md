@@ -100,7 +100,7 @@ Targeted elements should pass `data-sj-*` to raw elements.
 </div>
 
 // to
-<div data-sj-path="..." data-source-display-name="...">
+<div data-sj-path="..." data-sj-display-name="...">
   xxx
 </div>
 ```
