@@ -2,13 +2,17 @@
   "name": "tsx-source-jump",
   "version": "0.0.6",
   "type": "module",
-  "types": "lib/index.d.ts",
+  "types": "lib/mod.d.mts",
   "exports": {
-    "./runtime": {
-      "browser": "./lib/runtime/index.js"
+    ".": {
+      "node": "./lib/mod.mjs",
+      "browser": "./lib/mod.mjs",
+      "import": "./lib/mod.mjs"
     },
-    "./vite": {
-      "node": "./lib/vite/mod.mjs"
+    "./runtime": {
+      "browser": "./lib/runtime/index.js",
+      "node": "./lib/runtime/index.js",
+      "import": "./lib/runtime/index.js"
     }
   },
   "scripts": {
