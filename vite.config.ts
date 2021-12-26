@@ -15,5 +15,8 @@ export default defineConfig({
         return "";
       },
     },
+    rollupOptions: {
+      external: ["typescript", "vite", "react"],
+    },
   },
 });

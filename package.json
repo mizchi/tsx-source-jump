@@ -16,7 +16,7 @@
     }
   },
   "scripts": {
-    "prepublishOnly": "tsc -p ."
+    "prepublishOnly": "tsc -p . && vite build"
   },
   "peerDependencies": {
     "react": "*",
