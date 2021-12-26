@@ -44,6 +44,8 @@ export default defineConfig({
 });
 ```
 
+(Current `tsx-source-jump` rewrites `.tsx` to `.tsx` to work with any ts compiler (tsc, esbuild, swc). It may causes performance problem)
+
 Mount UI.
 
 ```tsx
