@@ -3,10 +3,16 @@
   "version": "0.0.4",
   "type": "module",
   "types": "lib/index.d.ts",
+  "exports": {
+    "./runtime": {
+      "browser": "./lib/runtime/index.js"
+    },
+    "./vite": {
+      "node": "./lib/vite/index.mjs"
+    }
+  },
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "serve": "vite preview"
+    "prepublishOnly": "tsc -p ."
   },
   "peerDependencies": {
     "react": "*",

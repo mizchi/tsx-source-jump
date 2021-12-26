@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import { tsxSourceJump } from "../src/vite";
+import { tsxSourceJump } from "../lib/vite/index.mjs";
 // import { embedSource } from "../src/vite/embed-source";
 
 export default defineConfig({
