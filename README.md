@@ -22,7 +22,7 @@ yarn add tsx-source-jump -D
 // vite.config.ts
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
-import { tsxSourceJump } from "tsx-source-jump";
+import { tsxSourceJump } from "tsx-source-jump/vite";
 
 export default defineConfig({
   plugins: [
@@ -49,7 +49,7 @@ Mount UI.
 import React from "react";
 import ReactDOM from "react-dom";
 import { App } from "./App";
-import { OverlayPortal } from "tsx-source-jump";
+import { OverlayPortal } from "tsx-source-jump/runtime";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -66,7 +66,7 @@ ReactDOM.render(
 
 ### with primitive dom wrapper like charkra-ui / react-native-elements ...
 
-`tsx-source-jump` adds `data-source-path="..."` for `target` options.
+`tsx-source-jump` adds `data-sj-path="..."` for `target` options.
 
 ```ts
 // vite.config.ts
@@ -81,11 +81,11 @@ tsxSourceJump({
 });
 ```
 
-Targeted elements should pass `data-source-*` to raw elements.
+Targeted elements should pass `data-sj-*` to raw elements.
 
 ## How it works internal
 
-`tsx-source-jump/vite`'s typescript transformer adds `data-source-*` as props.
+`tsx-source-jump/vite`'s typescript transformer adds `data-sj-*` as props.
 
 ```tsx
 // from
@@ -94,7 +94,7 @@ Targeted elements should pass `data-source-*` to raw elements.
 </div>
 
 // to
-<div data-source-path="..." data-source-display-name="...">
+<div data-sj-path="..." data-source-display-name="...">
   xxx
 </div>
 ```

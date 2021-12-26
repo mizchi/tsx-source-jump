@@ -17,10 +17,10 @@ function useMouseOverElementRef(): HTMLElement | null {
 
     const mouseOverHandler = (ev: MouseEvent) => {
       if (ev.target instanceof HTMLElement) {
-        if (ev.target.closest("[data-source-ui]")) return;
+        if (ev.target.closest("[data-sj-ui]")) return;
         let target = ev.target;
-        if (!target.dataset.sourcePath) {
-          target = target.closest("[data-source-path]") as HTMLElement;
+        if (!target.dataset.sjPath) {
+          target = target.closest("[data-sj-path]") as HTMLElement;
         }
         if (target == null) {
           setElement(null);
@@ -50,9 +50,9 @@ export function Overlay() {
 
   const [sourceData, setSourceData] = useState<null | {
     rect: DOMRect;
-    sourcePath: string;
-    sourceDisplayName: string;
-    sourceCode?: string;
+    sjPath: string;
+    sjDisplayName: string;
+    sjCode?: string;
   }>(null);
 
   useEffect(() => {
@@ -83,11 +83,10 @@ export function Overlay() {
     const rect = element.getBoundingClientRect();
     setSourceData({
       rect,
-      sourcePath: element.dataset.sourcePath!,
-      sourceDisplayName: element.dataset.sourceDisplayName!,
-      sourceCode:
-        element.dataset.sourceCode &&
-        decodeURIComponent(element.dataset.sourceCode),
+      sjPath: element.dataset.sjPath!,
+      sjDisplayName: element.dataset.sjDisplayName!,
+      sjCode:
+        element.dataset.sjCode && decodeURIComponent(element.dataset.sjCode),
     });
   }, [element, setSourceData, ref]);
 
@@ -125,13 +124,13 @@ export function Overlay() {
         }}
         onClick={() => {
           const el = document.createElement("a");
-          el.href = sourceData?.sourcePath!;
+          el.href = sourceData?.sjPath!;
           el.click();
         }}
       >
-        🔗 {sourceData?.sourceDisplayName}
+        🔗 {sourceData?.sjDisplayName}
       </div>
-      {sourceData?.sourceCode && (
+      {sourceData?.sjCode && (
         <div
           style={{
             position: "absolute",
@@ -149,7 +148,7 @@ export function Overlay() {
           }}
         >
           <pre>
-            <code>{sourceData?.sourceCode}</code>
+            <code>{sourceData?.sjCode}</code>
           </pre>
         </div>
       )}
@@ -164,7 +163,7 @@ export function OverlayPortal() {
     const tooltip = document.createElement("div");
     tooltip.style.isolation = "isolation";
     tooltip.style.pointerEvents = "none";
-    tooltip.dataset.sourceUi = "true";
+    tooltip.dataset.sjUi = "true";
     document.body.appendChild(tooltip);
     setElement(tooltip);
     return () => {

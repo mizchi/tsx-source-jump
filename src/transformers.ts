@@ -70,7 +70,7 @@ function appendSourceMapAttribute(
       factory.updateJsxAttributes(node.attributes, [
         ...node.attributes.properties,
         factory.createJsxAttribute(
-          factory.createIdentifier("data-source-path"),
+          factory.createIdentifier("data-sj-path"),
           factory.createStringLiteral(
             `vscode://file${fileName}:${position.line + 1}:${
               position.character + 1
@@ -78,21 +78,17 @@ function appendSourceMapAttribute(
           )
         ),
         factory.createJsxAttribute(
-          factory.createIdentifier("data-source-display-name"),
+          factory.createIdentifier("data-sj-display-name"),
           factory.createStringLiteral(displayText)
         ),
         ...(inlineCode
           ? [
               factory.createJsxAttribute(
-                factory.createIdentifier("data-source-code"),
+                factory.createIdentifier("data-sj-code"),
                 factory.createStringLiteral(encodeURIComponent(inlineCode))
               ),
             ]
           : []),
-        // factory.createJsxAttribute(
-        //   factory.createIdentifier("data-sourcemap"),
-        //   factory.createStringLiteral(`${start}:${end}`)
-        // ),
         // factory.createJsxAttribute(
         //   factory.createIdentifier("onClick"),
         //   factory.createJsxExpression(
